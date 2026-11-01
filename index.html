@@ -1,20 +1,10 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive"><meta name="referrer" content="no-referrer"><title>Operational Brain</title>
-<style>body{font:16px system-ui;margin:2rem;color:#333}</style></head>
-<body><p id="m">Loading dashboard…</p>
+<meta name="robots" content="noindex, nofollow, noarchive"><meta name="googlebot" content="noindex, nofollow, noarchive"><meta name="referrer" content="no-referrer"><title>Moved to Mission Control</title>
+<style>body{font:18px system-ui;margin:2rem;color:#333}a{color:#0b7285}</style></head>
+<body><p id="m">The Daily Update now lives in <a href="http://missioncontrol.simplyintense.com/">Mission Control</a>. Taking you there…</p>
 <script>
-// Static loader: contains NO data. Open as  <this page>#k=<view key>
-// The key stays in the URL fragment (never sent to this host); the page pulls the latest
-// dashboard from the private Supabase Edge Function and renders it.
-(function(){
-  var FN="https://ufwckditozswfzosymwu.supabase.co/functions/v1/brain-0niex6oikp3mgyan6tncae3kz13t";
-  var k=new URLSearchParams(location.hash.slice(1)).get("k");
-  var m=document.getElementById("m");
-  if(!k){m.textContent="Missing key.";return;}
-  fetch(FN+"?k="+encodeURIComponent(k),{cache:"no-store",referrerPolicy:"no-referrer"})
-   .then(function(r){if(!r.ok)throw new Error(r.status);return r.text();})
-   .then(function(h){document.open();document.write(h);document.close();})
-   .catch(function(e){m.textContent="Could not load dashboard ("+e.message+").";});
-})();
+// Redirect only. The old loader is kept in git (tag pre-merge-2026-10-31); revert this commit to restore it.
+// The key in this page's fragment is NOT forwarded (it is the old Brain key, not the MC key).
+location.replace("http://missioncontrol.simplyintense.com/");
 </script></body></html>
